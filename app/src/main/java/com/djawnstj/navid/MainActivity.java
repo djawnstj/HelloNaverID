@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "onSuccess: " + NaverIdLoginSDK.INSTANCE.getTokenType());
                     Log.d(TAG, "onSuccess: " + NaverIdLoginSDK.INSTANCE.getState());
 
+
                     // 토큰정보로 유저정보를 가져올 수 있음
                     NidOAuthLogin nidOAuthLogin = new NidOAuthLogin();
                     nidOAuthLogin.callProfileApi(new NidProfileCallback<NidProfileResponse>() {
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
                     onFailure(i, s);
                 }
             });
+        });
+
+        binding.logoutBtn.setOnClickListener(view -> {
+            NaverIdLoginSDK.INSTANCE.logout();
         });
 
 
